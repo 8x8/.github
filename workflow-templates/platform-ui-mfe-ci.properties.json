@@ -7,8 +7,5 @@
       "javascript",
       "npn",
       "yarn"
-  ],
-  "filePatterns": [
-      "package.json$"
   ]
 }
