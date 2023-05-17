@@ -1,0 +1,14 @@
+{
+  "name": "Platform UI MFE CI",
+  "description": "Platform UI MFE CI starter workflow.",
+  "iconName": "octicon rocket",
+  "categories": [
+      "deployment",
+      "javascript",
+      "npn",
+      "yarn"
+  ],
+  "filePatterns": [
+      "package.json$"
+  ]
+}
