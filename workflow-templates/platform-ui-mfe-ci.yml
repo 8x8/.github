@@ -21,7 +21,7 @@ jobs:
     name: ci
     # For more information and detailed docs please check 8x8/platform-ui-mfe-ci-workflow
     # Info: to increase readability of your workflow and support the future default value updates, please delete the keys you're not using
-    uses: 8x8/platform-ui-mfe-ci-workflow/.github/workflows/mfe-ci.yml@v1.1
+    uses: 8x8/platform-ui-mfe-ci-workflow/.github/workflows/mfe-ci.yml@v1.2
     with:
       # Node version used to run the CI process
       # Default: 18
