@@ -10,7 +10,7 @@ jobs:
   cd:
     name: cd
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    uses: 8x8/platform-ui-mfe-cd-workflow/.github/workflows/mfe-cd.yml@v1.1
+    uses: 8x8/platform-ui-mfe-cd-workflow/.github/workflows/mfe-cd.yml@v1.2
     with:
       ciWorkflowRunId: ${{ github.event.workflow_run.id }}
       namespace: 
