@@ -1,0 +1,11 @@
+{
+  "name": "Platform UI MFE CD",
+  "description": "Upload built artifacts, create public URL to access them and publish/promote in MFE Registry",
+  "iconName": "octicon rocket",
+  "categories": [
+      "deployment",
+      "javascript",
+      "npn",
+      "yarn"
+  ]
+}

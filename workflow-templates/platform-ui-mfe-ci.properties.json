@@ -1,7 +1,7 @@
 {
   "name": "Platform UI MFE CI",
-  "description": "Platform UI MFE CI starter workflow.",
-  "iconName": "octicon rocket",
+  "description": "Build micro front-ends, run static code analysis, create and upload artifact",
+  "iconName": "octicon container",
   "categories": [
       "deployment",
       "javascript",
