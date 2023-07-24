@@ -1,12 +1,13 @@
 # Important! First set the CI workflow. Just after you're done with CI start with CD.
-name: CD
+name: MFE CD
+run-name: "CD for ${{ github.event.workflow_run.display_title }} (MFE CI #${{ github.event.workflow_run.run_number }}, Attempt ${{ github.event.workflow_run.run_attempt }})"
 
 # Workflow trigger setup. For more information: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
 on:
   # This event occurs when a workflow run is requested or completed. It allows you to execute a workflow based on execution or completion of another workflow. 
   # More info at: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_run
   workflow_run:
-    workflows: [CI]
+    workflows: [MFE CI]
     types:
       - completed
 
@@ -16,7 +17,7 @@ jobs:
     # For more information and detailed docs please check 8x8/platform-ui-mfe-cd-workflow
     # Info: to increase readability of your workflow and support the future default value updates, please delete the keys you're not using
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    uses: 8x8/platform-ui-mfe-cd-workflow/.github/workflows/mfe-cd.yml@v2.1
+    uses: 8x8/platform-ui-mfe-cd-workflow/.github/workflows/mfe-cd.yml@v2.2
     with:
       # The unique identifier of the CI workflow run which triggered the CD workflow
       # Mandatory value, keep the workflow_run.id

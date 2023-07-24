@@ -1,4 +1,4 @@
-name: CI
+name: MFE CI
 
 # Workflow trigger setup. For more information: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
 on:
