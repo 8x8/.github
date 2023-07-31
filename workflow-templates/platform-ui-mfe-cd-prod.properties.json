@@ -1,0 +1,11 @@
+{
+  "name": "Platform UI MFE CD Production",
+  "description": "Fetch the available production environments, get the versions to release and publish/promote in MFE Registry",
+  "iconName": "octicon rocket",
+  "categories": [
+      "deployment",
+      "javascript",
+      "npn",
+      "yarn"
+  ]
+}

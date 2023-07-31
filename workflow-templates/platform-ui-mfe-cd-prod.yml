@@ -1,0 +1,54 @@
+
+# Workflow trigger setup. For more information: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
+on:
+  # This event occurs when a workflow run is requested or completed. It allows you to execute a workflow based on execution or completion of another workflow. 
+  # More info at: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_run
+  workflow_run:
+    workflows: [MFE CI]
+    types:
+      - completed
+
+
+
+# Important! First set the CI and CD (non-prod) workflows. Just after you're done with CI/CD (non-prod) start with CD (prod).
+name: MFE CD Prod
+
+# Workflow trigger setup. For more information: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
+on:
+  # Workflow is exectued when it is triggered manually
+  # More info at: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
+  workflow_dispatch:
+  
+  # Workflow is run on a scheduled time. Configuration works with specific UTC times using POSIX cron syntax.
+  # More info at: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+  # Remove the following config if you don't need scheduled production released
+  # Example: runs at 10:00 AM (UTC) on each Tue, Wed, Thu.
+  schedule:
+    - cron:  '0 10 * * 2,3,4'
+
+jobs:
+  cd:
+    name: cd
+    uses: 8x8/platform-ui-mfe-cd-prod-workflow/.github/workflows/mfe-cd-prod.yml@master
+    with:
+      # Relative path to workspace directory. 
+      # Root directory by default. 
+      # Remove if your project is not a monorepo with multiple packages inside
+      # Use the same value as for MFE CI!
+      # Exmple: packages
+      workspaceDirectory:
+      
+      # Project or team namespace used as prefix of the resource keys in bucket. 
+      # Alphanumeric value. 
+      # Use the same value as for MFE CD (non-prod)!
+      namespace:
+      
+      # Path to the repote entry file of the MFE. Value relative to the root of the MFE package. 
+      # Mandatory field
+      # Example: dist/remoteEntry.js
+      # Use the same value as for MFE CD (non-prod)!
+      remoteEntry:
+      
+    # For more information and detailed docs please check 8x8/platform-ui-mfe-cd-prod-workflow
+    secrets: inherit
+
