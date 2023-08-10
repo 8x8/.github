@@ -1,4 +1,4 @@
-# Important! First set the CI and CD (non-prod) workflows. Just after you're done with CI/CD (non-prod) start with CD (prod).
+# Important! First set the MFE CI and MFE CD (non-prod) workflows. Just after you're done with CI/CD (non-prod) start with CD (prod).
 name: MFE CD Prod
 
 # Workflow trigger setup. For more information: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
@@ -6,6 +6,16 @@ on:
   # Workflow is exectued when it is triggered manually
   # More info at: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Production environment'
+        type: environment
+      ignoreEnvironments:
+        description: 'Release to ALL production'
+        type: boolean
+      package:
+        description: Complete package name (name@build)
+        type: string
   
   # Workflow is run on a scheduled time. Configuration works with specific UTC times using POSIX cron syntax.
   # More info at: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
