@@ -27,7 +27,7 @@ on:
 jobs:
   cd:
     name: cd
-    uses: 8x8/platform-ui-mfe-cd-prod-workflow/.github/workflows/mfe-cd-prod.yml@v1
+    uses: 8x8/platform-ui-mfe-cd-prod-workflow/.github/workflows/mfe-cd-prod.yml@v1.1
     with:
       # Relative path to workspace directory. 
       # Root directory by default. 
@@ -46,6 +46,20 @@ jobs:
       # Example: dist/remoteEntry.js
       # Use the same value as for MFE CD (non-prod)!
       remoteEntry:
+
+      # Flag that is used to decide whether to create an RP ticket for this deployment.
+      # Also, this will send a message to the Release Today Work room
+      # for each Production environment for which the deployment was finished.
+      # Is set to false by default.
+      createRpTicket:
+
+      # Release notes for the RP ticket (if the flag for the ticket is set to true).
+      # If omitted, an automated message will be created.
+      releaseNotes:
+
+      # The rollback plan for the RP ticket (if the flag for the ticket is set to true).
+      # Run previous pipeline will be used by default.
+      rollbackPlan:
       
     # For more information and detailed docs please check 8x8/platform-ui-mfe-cd-prod-workflow
     secrets: inherit
