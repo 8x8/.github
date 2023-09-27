@@ -16,15 +16,6 @@ on:
       package:
         description: Complete package name (name@build)
         type: string
-      createRpTicket:
-        description: Enable RP ticket creation
-        type: boolean
-      releaseNotes:
-        description: Release notes for the RP ticket. (If left empty an automatic description will be used)
-        type: string
-      rollbackPlan:
-        description: The rollback plan for the release. (This value is required if the rp ticket creation flag is set)
-        type: string
   
   # Workflow is run on a scheduled time. Configuration works with specific UTC times using POSIX cron syntax.
   # More info at: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
@@ -36,7 +27,7 @@ on:
 jobs:
   cd:
     name: cd
-    uses: 8x8/platform-ui-mfe-cd-prod-workflow/.github/workflows/mfe-cd-prod.yml@v1
+    uses: 8x8/platform-ui-mfe-cd-prod-workflow/.github/workflows/mfe-cd-prod.yml@v1.1
     with:
       # Relative path to workspace directory. 
       # Root directory by default. 
