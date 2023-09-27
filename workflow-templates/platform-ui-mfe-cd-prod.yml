@@ -16,6 +16,15 @@ on:
       package:
         description: Complete package name (name@build)
         type: string
+      createRpTicket:
+        description: Enable RP ticket creation
+        type: boolean
+      releaseNotes:
+        description: Release notes for the RP ticket. (If left empty an automatic description will be used)
+        type: string
+      rollbackPlan:
+        description: The rollback plan for the release. (This value is required if the rp ticket creation flag is set)
+        type: string
   
   # Workflow is run on a scheduled time. Configuration works with specific UTC times using POSIX cron syntax.
   # More info at: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
@@ -46,6 +55,20 @@ jobs:
       # Example: dist/remoteEntry.js
       # Use the same value as for MFE CD (non-prod)!
       remoteEntry:
+
+      # Flag that is used to decide whether to create an RP ticket for this deployment.
+      # Also, this will send a message to the Release Today Work room
+      # for each Production environment for which the deployment was finished.
+      # Is set to false by default.
+      createRpTicket:
+
+      # Release notes for the RP ticket (if the flag for the ticket is set to true).
+      # If omitted, an automated message will be created.
+      releaseNotes:
+
+      # The rollback plan for the RP ticket (if the flag for the ticket is set to true).
+      # Run previous pipeline will be used by default.
+      rollbackPlan:
       
     # For more information and detailed docs please check 8x8/platform-ui-mfe-cd-prod-workflow
     secrets: inherit
