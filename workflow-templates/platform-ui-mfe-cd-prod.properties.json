@@ -1,6 +1,6 @@
 {
   "name": "Platform UI MFE CD Production",
-  "description": "Fetch the available production environments, get the versions to release and publish/promote in MFE Registry",
+  "description": "Fetch the available production environments, get the versions to release and promote in Platform MFE Registry",
   "iconName": "octicon rocket",
   "categories": [
       "deployment",

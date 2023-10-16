@@ -27,7 +27,7 @@ on:
 jobs:
   cd:
     name: cd
-    uses: 8x8/platform-ui-mfe-cd-prod-workflow/.github/workflows/mfe-cd-prod.yml@v1.1
+    uses: 8x8/platform-ui-mfe-cd-prod-workflow/.github/workflows/mfe-cd-prod.yml@v2
     with:
       # Relative path to workspace directory. 
       # Root directory by default. 
@@ -35,17 +35,6 @@ jobs:
       # Use the same value as for MFE CI!
       # Exmple: packages
       workspaceDirectory:
-      
-      # Project or team namespace used as prefix of the resource keys in bucket. 
-      # Alphanumeric value. 
-      # Use the same value as for MFE CD (non-prod)!
-      namespace:
-      
-      # Path to the repote entry file of the MFE. Value relative to the root of the MFE package. 
-      # Mandatory field
-      # Example: dist/remoteEntry.js
-      # Use the same value as for MFE CD (non-prod)!
-      remoteEntry:
 
       # Flag that is used to decide whether to create an RP ticket for this deployment.
       # Also, this will send a message to the Release Today Work room
