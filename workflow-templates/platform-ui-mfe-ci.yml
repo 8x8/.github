@@ -21,7 +21,7 @@ jobs:
     name: ci
     # For more information and detailed docs please check 8x8/platform-ui-mfe-ci-workflow
     # Info: to increase readability of your workflow and support the future default value updates, please delete the keys you're not using
-    uses: 8x8/platform-ui-mfe-ci-workflow/.github/workflows/mfe-ci.yml@v2.2
+    uses: 8x8/platform-ui-mfe-ci-workflow/.github/workflows/mfe-ci.yml@v3
     with:
       # Node version used to run the CI process. Allows values specfied for actions/setup-node@v3 (node-version)
       # Default: '18'
@@ -66,5 +66,9 @@ jobs:
       # Path to the remote entry file of the MFE. Value relative to the root of the MFE package.
       # Example: dist/index.js
       remoteEntry:
+
+      # Whether to append build metadata to the package released from the main branch version or not.
+      # Example: true/false
+      hasBuildMetadata:
 
     secrets: inherit
