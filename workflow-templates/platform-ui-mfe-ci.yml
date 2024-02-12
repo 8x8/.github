@@ -32,7 +32,7 @@ jobs:
       packageManager:
       
       # Install command
-      # Default: npn ci
+      # Default: npm ci
       # Example: yarn install
       install:
 
@@ -74,5 +74,19 @@ jobs:
       # If this is true, publish a SNAPSHOT version if a normal version already exists, instead of showing the VERSION ALREADY EXISTS message (only applicable to publishes from main branch)
       # Example: true/false
       alwaysPublish:
+
+      # Run sonar-scanner
+      # Example: true/false
+      sonar:
+
+      # Additional arguments to the sonar-scanner
+      # Example: >
+      # -Dsonar.projectKey=8x8_example
+      # -Dsonar.verbose=true
+      sonarArgs:
+
+      # Set the sonar.projectBaseDir analysis property
+      # Example: "./packages/8x8-example"
+      sonarProjectBaseDir:
 
     secrets: inherit
