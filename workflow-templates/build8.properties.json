@@ -1,0 +1,15 @@
+{
+    "name": "8x8 Build8 - Java/Cloud8 service",
+    "description": "Build your Cloud8",
+    "iconName": "feed-rocket",
+    "categories": [
+        "java"
+    ],
+    "filePatterns": [
+        "pom.xml",
+        "pipeline.yml",
+        "^Dockerfile",
+        ".*\\.md$"
+    ]
+}
+
