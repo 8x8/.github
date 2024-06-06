@@ -27,7 +27,7 @@ on:
 jobs:
   cd:
     name: cd
-    uses: 8x8/platform-ui-mfe-cd-prod-workflow/.github/workflows/mfe-cd-prod.yml@v2
+    uses: 8x8/platform-ui-mfe-cd-prod-workflow/.github/workflows/mfe-cd-prod.yml@v3.2
     with:
       # Relative path to workspace directory. 
       # Root directory by default. 

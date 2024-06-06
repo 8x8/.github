@@ -17,7 +17,7 @@ jobs:
     # For more information and detailed docs please check 8x8/platform-ui-mfe-cd-workflow
     # Info: to increase readability of your workflow and support the future default value updates, please delete the keys you're not using
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    uses: 8x8/platform-ui-mfe-cd-workflow/.github/workflows/mfe-cd.yml@v2.3
+    uses: 8x8/platform-ui-mfe-cd-workflow/.github/workflows/mfe-cd.yml@v3.1
     with:
       # The unique identifier of the CI workflow run which triggered the CD workflow
       # Mandatory value, keep the workflow_run.id
