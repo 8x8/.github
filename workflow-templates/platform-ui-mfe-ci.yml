@@ -23,6 +23,11 @@ jobs:
     # Info: to increase readability of your workflow and support the future default value updates, please delete the keys you're not using
     uses: 8x8/platform-ui-mfe-ci-workflow/.github/workflows/mfe-ci.yml@v4
     with:
+      # Optional input parameter to use a high memory runner for the build job
+      # Default: false 
+      # If set to `true`, the CI workflow will be executed using the `"self-hosted-linux-x64-highmem"` runner.
+      useHighmemRunner: false
+
       # Node version used to run the CI process. Allows values specfied for actions/setup-node@v3 (node-version)
       # Default: '18'
       nodeVersion:
