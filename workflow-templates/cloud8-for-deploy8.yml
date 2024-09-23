@@ -1,0 +1,58 @@
+name: "build_for_deploy8"
+on:
+  push:
+    # don't build when changes are to workflows
+    paths-ignore:
+      - '.github/**'
+concurrency:
+  # allow one build per workflow-branch at a time
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # don't cancel in progress jobs, new jobs will wait
+  cancel-in-progress: false
+jobs:
+  build:
+    uses: 8x8/build8/.github/workflows/cloud8_app.yaml@master
+    with:
+      # Base version of the application.
+      version: "1.0"
+      # Version of Java, i.e. 11, 17, 21 or 11.0, 11.0.4, etc.
+      java_version: "17"
+      # Name for built docker image, usualy 8x8/<service>
+      docker_image_name: 8x8/<service>
+
+
+# Automatically promote new builds using deploy8 to acceptance, staging, and production.
+# Use the below as a template to create your desired workflow.
+# https://github.com/8x8/deploy8/blob/master/docs/getting_started.md
+# 
+#  acceptance:
+#    needs:
+#      - build
+#    strategy:
+#      matrix:
+#        cluster: [accept-aws-use1-05]
+#    uses: 8x8/deploy8/.github/workflows/promote.yaml@master
+#    with:
+#      version: ${{ needs.build.outputs.build_version }}
+#      github_environment: acceptance
+#      environment: acceptance
+#      cluster: ${{ matrix.cluster }}
+#      namespace:
+#      app:
+#    secrets: inherit
+#  staging:
+#    needs:
+#      - build
+#      - acceptance
+#    strategy:
+#      matrix:
+#        cluster: [stage-04-use, stage-08-usw]
+#    uses: 8x8/deploy8/.github/workflows/promote.yaml@master
+#    with:
+#      version: ${{ needs.build.outputs.build_version }}
+#      github_environment: staging
+#      environment: staging
+#      cluster: ${{ matrix.cluster }}
+#      namespace:
+#      app:
+#    secrets: inherit
