@@ -1,0 +1,21 @@
+name: "build_for_gds"
+on:
+  push:
+    # don't build when changes are to workflows
+    paths-ignore:
+      - '.github/**'
+concurrency:
+  # allow one build per workflow-branch at a time
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # don't cancel in progress jobs, new jobs will wait
+  cancel-in-progress: false
+jobs:
+  build_for_gds:
+    uses: 8x8/build8/.github/workflows/cloud8_gds_app.yaml@master
+    with:
+      # Base version of the application.
+      version: "1.0"
+      # Version of Java, i.e. 11, 17, 21 or 11.0, 11.0.4, etc.
+      java_version: "17"
+      # Path to the helm chart. Usually found in service/src/main/helm/<chart>.
+      helm_chart: "service/src/main/helm/<chart>"

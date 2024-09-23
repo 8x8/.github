@@ -1,0 +1,11 @@
+{
+    "name": "8x8 Build8 - Java/Cloud8 service deployed by deploy8",
+    "description": "Build your Cloud8 service and docker image with Build8. Deploy your new verions with deploy8.",
+    "iconName": "octicon rocket",
+    "categories": [
+        "java"
+    ],
+    "filePatterns": [
+        "pom.xml"
+    ]
+}
